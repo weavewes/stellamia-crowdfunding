@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comentarios de Tarea — Stellamia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #293b5b;
+      --navy-light: #3d5278;
+      --gold: #c19b65;
+      --gold-light: #d4b47a;
+      --beige: #dbd1c9;
+      --cream: #f5f0eb;
+      --cream-dark: #ede8e2;
+      --text-dark: #1a1a2e;
+      --text-medium: #4a4a6a;
+      --text-light: #7a7a9a;
+      --white: #ffffff;
+      --green: #4a7c59;
+      --green-light: #e8f0eb;
+      --red: #8b3a3a;
+      --red-light: #f5ebeb;
+      --purple: #6d5066;
+      --purple-light: #f0ebf0;
+      --blue-gray: #898ea9;
+      --blue-gray-light: #eef0f5;
+      --shadow-sm: 0 1px 4px rgba(41, 59, 91, 0.06);
+      --shadow-md: 0 4px 16px rgba(41, 59, 91, 0.10);
+      --shadow-lg: 0 8px 32px rgba(41, 59, 91, 0.14);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Infant', serif;
+    }
+
+    /* ── Comments Section Container ── */
+    .comments-section {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .comments-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .comments-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .comments-count {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── New Comment Input ── */
+    .new-comment-box {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--cream-dark);
+      background: var(--cream);
+    }
+
+    .new-comment-box textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.875rem 1rem;
+      border: 1.5px solid var(--beige);
+      border-radius: var(--radius-md);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: var(--white);
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .new-comment-box textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(193, 155, 101, 0.15);
+    }
+
+    .new-comment-box textarea::placeholder {
+      color: var(--text-light);
+    }
+
+    .new-comment-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.875rem;
+    }
+
+    .new-comment-actions select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--beige);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-medium);
+      background: var(--white);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* ── Comments List ── */
+    .comments-list {
+      padding: 1rem 2rem;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      position: relative;
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    .comment-item.resolved {
+      opacity: 0.6;
+    }
+
+    /* ── Avatar ── */
+    .comment-avatar {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .comment-avatar.img {
+      background: transparent;
+      border: 2px solid var(--beige);
+    }
+
+    .comment-avatar.agent {
+      background: var(--purple);
+    }
+
+    .comment-avatar.human {
+      background: var(--navy);
+    }
+
+    /* ── Comment Body ── */
+    .comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .comment-author {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .comment-role {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .comment-role.agent {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .comment-role.human {
+      background: var(--blue-gray-light);
+      color: var(--blue-gray);
+    }
+
+    .comment-time {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .comment-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    /* ── Type Badges ── */
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-general    { background: var(--beige);           color: #5a4a3a; }
+    .badge-question   { background: var(--blue-gray-light); color: var(--blue-gray); }
+    .badge-answer     { background: var(--green-light);      color: var(--green); }
+    .badge-blocker    { background: var(--red-light);       color: var(--red); }
+    .badge-decision   { background: var(--purple-light);    color: var(--purple); }
+    .badge-instruction{ background: rgba(41,59,91,0.1);    color: var(--navy); }
+    .badge-review     { background: rgba(193,155,101,0.15); color: #8a6a30; }
+    .badge-client-note { background: var(--purple-light);    color: var(--purple); }
+    .badge-agent-note  { background: var(--blue-gray-light); color: var(--blue-gray); }
+
+    /* ── Visibility Badges ── */
+    .visibility-badge {
+      font-size: 0.65rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      border: 1px solid;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .visibility-internal    { border-color: var(--beige); color: #7a6a5a; background: rgba(219,209,201,0.3); }
+    .visibility-client      { border-color: var(--gold); color: #8a6a20; background: rgba(193,155,101,0.1); }
+    .visibility-agents-only { border-color: var(--blue-gray); color: var(--blue-gray); background: var(--blue-gray-light); }
+    .visibility-humans-only { border-color: var(--navy); color: var(--navy); background: rgba(41,59,91,0.06); }
+
+    /* ── Comment Content ── */
+    .comment-content {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Comment Footer ── */
+    .comment-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .comment-footer button {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 0.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .comment-footer button:hover {
+      color: var(--navy);
+    }
+
+    .requires-response-tag {
+      font-size: 0.72rem;
+      color: var(--red);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .resolved-tag {
+      font-size: 0.72rem;
+      color: var(--green);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* ── Reply Thread ── */
+    .replies-container {
+      margin-top: 0.75rem;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--beige);
+    }
+
+    .reply-item {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px dashed var(--cream-dark);
+    }
+
+    .reply-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .reply-avatar {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .reply-avatar.agent {
+      background: var(--purple);
+    }
+
+    .reply-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .reply-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .reply-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .reply-time {
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    .reply-content {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-medium);
+      margin-bottom: 0.5rem;
+    }
+
+    .reply-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .reply-footer button {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .reply-footer button:hover {
+      color: var(--navy);
+    }
+
+    .toggle-replies-btn {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .toggle-replies-btn:hover {
+      text-decoration: underline;
+    }
+
+    .replies-wrapper {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .replies-wrapper.collapsed {
+      max-height: 0 !important;
+    }
+
+    /* ── States ── */
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+
+    .empty-state h3 {
+      font-size: 1.25rem;
+      color: var(--text-medium);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    /* Loading state */
+    .loading-state {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--beige);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-state p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    /* Error state */
+    .error-state {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .error-state-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .error-state h3 {
+      font-size: 1.1rem;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .error-state p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-retry {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-retry:hover {
+      background: var(--navy-light);
+    }
+
+    /* ── Inline reply form ── */
+    .inline-reply-form {
+      margin-top: 0.75rem;
+      padding: 0.875rem;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--beige);
+    }
+
+    .inline-reply-form textarea {
+      width: 100%;
+      min-height: 72px;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--beige);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      resize: vertical;
+      outline: none;
+      background: var(--white);
+      color: var(--text-dark);
+      transition: border-color 0.2s;
+    }
+
+    .inline-reply-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .inline-reply-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-cancel {
+      background: none;
+      border: 1px solid var(--beige);
+      color: var(--text-medium);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-cancel:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    /* ── Visibility indicator dots ── */
+    .vis-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.25rem;
+    }
+
+    .vis-dot-internal    { background: var(--beige); }
+    .vis-dot-client      { background: var(--gold); }
+    .vis-dot-agents-only { background: var(--blue-gray); }
+    .vis-dot-humans-only { background: var(--navy); }
+  </style>
+</head>
+<body>
+
+<!-- ================================================ -->
+<!-- ESTADO 1: CON COMENTARIOS (ejemplo real)        -->
+<!-- Cambiar a empty-state o loading-state para ver  -->
+<!-- los otros estados                               -->
+<!-- ================================================ -->
+
+<div class="comments-section">
+
+  <!-- Header -->
+  <div class="comments-header">
+    <h2>Comentarios de la tarea</h2>
+    <span class="comments-count">6 comentarios</span>
+  </div>
+
+  <!-- New Comment Input -->
+  <div class="new-comment-box">
+    <textarea id="new-comment-text" placeholder="Escribe un comentario..."></textarea>
+    <div class="new-comment-actions">
+      <select title="Tipo de comentario">
+        <option value="GENERAL">General</option>
+        <option value="QUESTION">Pregunta</option>
+        <option value="ANSWER">Respuesta</option>
+        <option value="BLOCKER">Bloqueador</option>
+        <option value="DECISION">Decisión</option>
+        <option value="INSTRUCTION">Instrucción</option>
+        <option value="REVIEW">Revisión</option>
+        <option value="CLIENT_NOTE">Nota cliente</option>
+        <option value="AGENT_NOTE">Nota agente</option>
+      </select>
+      <button class="btn-primary" onclick="alert('Enviar comentario')">Enviar</button>
+    </div>
+  </div>
+
+  <!-- Comments List -->
+  <div class="comments-list">
+
+    <!-- ── Comment 1: QUESTION con requires_response ── -->
+    <div class="comment-item" id="comment-1">
+      <div class="comment-avatar human">SM</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Saskia Mueller</span>
+          <span class="comment-role human">Humano</span>
+          <span class="comment-time">hace 2 horas</span>
+          <div class="comment-badges">
+            <span class="badge badge-question">Pregunta</span>
+            <span class="visibility-badge visibility-client">
+              <span class="vis-dot vis-dot-client"></span>Cliente
+            </span>
+          </div>
+        </div>
+        <div class="comment-content">
+          ¿Podemos revisar juntos la paleta de colores antes de continuar con el diseño de la sección hero? Quiero asegurarme de que los tonos seleccionados coincidan con el posicionamiento premium que definimos.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-1')">
+            ↩ Responder
+          </button>
+          <span class="requires-response-tag">● Requiere respuesta</span>
+        </div>
+        <!-- Inline reply form -->
+        <div id="reply-form-comment-1" style="display:none;" class="inline-reply-form">
+          <textarea placeholder="Tu respuesta..."></textarea>
+          <div class="inline-reply-actions">
+            <button class="btn-cancel" onclick="toggleReplyForm('comment-1')">Cancelar</button>
+            <button class="btn-primary" style="padding:0.45rem 1rem; font-size:0.8rem;">Enviar</button>
+          </div>
+        </div>
+        <!-- Replies -->
+        <div class="replies-wrapper" id="replies-comment-1">
+          <div class="replies-container">
+            <div class="reply-item">
+              <div class="reply-avatar agent">PR</div>
+              <div class="reply-body">
+                <div class="reply-meta">
+                  <span class="reply-author">Prisma (Agente IA)</span>
+                  <span class="reply-time">hace 1 hora</span>
+                </div>
+                <div class="reply-content">
+                  Confirmado, Saskia. Voy a preparar una presentación con 3 propuestas de paleta: una más cálida (gold + ivory), otra neutra sofisticada (slate + cream) y una tercera más audaz (deep navy + champagne). Te la comparto antes del viernes.
+                </div>
+                <div class="reply-footer">
+                  <button>↩ Responder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="toggle-replies-btn" onclick="toggleReplies('comment-1')">
+          ↕ 1 respuesta
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Comment 2: INSTRUCTION ── -->
+    <div class="comment-item" id="comment-2">
+      <div class="comment-avatar human">HE</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Héctor Muñoz</span>
+          <span class="comment-role human">Humano</span>
+          <span class="comment-time">hace 5 horas</span>
+          <div class="comment-badges">
+            <span class="badge badge-instruction">Instrucción</span>
+            <span class="visibility-badge visibility-agents-only">
+              <span class="vis-dot vis-dot-agents-only"></span>Solo agentes
+            </span>
+          </div>
+        </div>
+        <div class="comment-content">
+          Prioridad alta en este task. El cliente necesita el mockup completo para su reunión del lunes. FORGE, revisar dependencias técnicas antes de proceder. YOA, confirma que las tareas están secuenciadas correctamente.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-2')">↩ Responder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Comment 3: REVIEW ── -->
+    <div class="comment-item" id="comment-3">
+      <div class="comment-avatar agent">PR</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Prisma (Agente IA)</span>
+          <span class="comment-role agent">Agente IA</span>
+          <span class="comment-time">hace 8 horas</span>
+          <div class="comment-badges">
+            <span class="badge badge-review">Revisión</span>
+          </div>
+        </div>
+        <div class="comment-content">
+          Mockup de la sección hero completado y cargado en Figma. Revisen los spacing tokens y la jerarquía tipográfica. Cambios aplicados según el último feedback: margen superior reducido de 120px a 96px y ajuste de font-weight en el headline.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-3')">↩ Responder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Comment 4: DECISION ── -->
+    <div class="comment-item" id="comment-4">
+      <div class="comment-avatar human">HE</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Héctor Muñoz</span>
+          <span class="comment-role human">Humano</span>
+          <span class="comment-time">ayer</span>
+          <div class="comment-badges">
+            <span class="badge badge-decision">Decisión</span>
+            <span class="visibility-badge visibility-internal">
+              <span class="vis-dot vis-dot-internal"></span>Interno
+            </span>
+          </div>
+        </div>
+        <div class="comment-content">
+          Decisión tomada: usamos la tipografía Cormorant Infant para todos los headings del sitio. Inter para body text. Esta decisión aplica a todo el proyecto — actualizar los tokens en diseño y en código.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-4')">↩ Responder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Comment 5: BLOCKER ── -->
+    <div class="comment-item" id="comment-5">
+      <div class="comment-avatar agent">FO</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Forge (Agente IA)</span>
+          <span class="comment-role agent">Agente IA</span>
+          <span class="comment-time">hace 2 días</span>
+          <div class="comment-badges">
+            <span class="badge badge-blocker">Bloqueador</span>
+          </div>
+        </div>
+        <div class="comment-content">
+          🚨 Bloqueador: El API endpoint de imágenes no responde correctamente cuando el payload supera los 2MB. Error 413 constantemente en producción. Necesito confirmación del cliente para actualizar el plan de hosting o necesitamos comprimir assets antes de subir.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-5')">↩ Responder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Comment 6: CLIENT_NOTE ── -->
+    <div class="comment-item resolved" id="comment-6">
+      <div class="comment-avatar human">SM</div>
+      <div class="comment-body">
+        <div class="comment-meta">
+          <span class="comment-author">Saskia Mueller</span>
+          <span class="comment-role human">Humano</span>
+          <span class="comment-time">hace 3 días</span>
+          <div class="comment-badges">
+            <span class="badge badge-client-note">Nota cliente</span>
+            <span class="visibility-badge visibility-client">
+              <span class="vis-dot vis-dot-client"></span>Cliente
+            </span>
+          </div>
+        </div>
+        <div class="comment-content">
+          El logo debe incluirse también en la versión monocromática para fondos oscuros. Por favor incluir todas las variantes en el paquete final.
+        </div>
+        <div class="comment-footer">
+          <button onclick="toggleReplyForm('comment-6')">↩ Responder</button>
+          <span class="resolved-tag">✓ Resuelto</span>
+          <button onclick="toggleResolved('comment-6')" style="font-size:0.72rem; margin-left:auto;">Marcar como no resuelto</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================ -->
+<!-- ESTADO 2: VACÍO (descomentar para probar)        -->
+<!-- ================================================ -->
+<!--
+<div class="comments-section">
+  <div class="comments-header">
+    <h2>Comentarios de la tarea</h2>
+    <span class="comments-count">0 comentarios</span>
+  </div>
+  <div class="empty-state">
+    <div class="empty-state-icon">💬</div>
+    <h3>Sin comentarios aún</h3>
+    <p>Sé el primero en dejar un comentario en esta tarea.</p>
+  </div>
+</div>
+-->
+
+<!-- ================================================ -->
+<!-- ESTADO 3: LOADING (descomentar para probar)      -->
+<!-- ================================================ -->
+<!--
+<div class="comments-section">
+  <div class="comments-header">
+    <h2>Comentarios de la tarea</h2>
+    <span class="comments-count">—</span>
+  </div>
+  <div class="loading-state">
+    <div class="spinner"></div>
+    <p>Cargando comentarios...</p>
+  </div>
+</div>
+-->
+
+<!-- ================================================ -->
+<!-- ESTADO 4: ERROR (descomentar para probar)       -->
+<!-- ================================================ -->
+<!--
+<div class="comments-section">
+  <div class="comments-header">
+    <h2>Comentarios de la tarea</h2>
+    <span class="comments-count">—</span>
+  </div>
+  <div class="error-state">
+    <div class="error-state-icon">⚠️</div>
+    <h3>No se pudieron cargar los comentarios</h3>
+    <p>Hubo un problema al conectar con el servidor.</p>
+    <button class="btn-retry" onclick="alert('Reintentando...')">Reintentar</button>
+  </div>
+</div>
+-->
+
+<script>
+  function toggleReplyForm(commentId) {
+    const form = document.getElementById('reply-form-' + commentId);
+    if (form) {
+      const isHidden = form.style.display === 'none' || form.style.display === '';
+      form.style.display = isHidden ? 'block' : 'none';
+    }
+  }
+
+  function toggleReplies(commentId) {
+    const wrapper = document.getElementById('replies-' + commentId);
+    if (wrapper) {
+      wrapper.classList.toggle('collapsed');
+    }
+  }
+
+  function toggleResolved(commentId) {
+    const item = document.getElementById(commentId);
+    if (item) {
+      item.classList.toggle('resolved');
+    }
+  }
+</script>
+
+</body>
+</html>
