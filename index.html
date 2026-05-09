@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellamia 2026 – Drei neue Editionen für Eltern (0–6 J.) | Early-Bird</title>
+    <meta name="description" content="Stellamia 2026 – Drei neue Editionen für Eltern. Early-Bird-Anmeldung für Sonderpreise.">
+    
+    <!-- Google Fonts - Stellamia.eu Design System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cormorant+Infant:wght@400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           STELLAMIA CROWDFUNDING LANDING
+           Design System: stellamia.eu
+           ============================================ */
+
+        :root {
+            /* Color Palette - stellamia.eu */
+            --color-navy: #293b5b;
+            --color-navy-deep: #0f2756;
+            --color-purple: #6d5066;
+            --color-purple-light: #563e50;
+            --color-blue-gray: #898ea9;
+            --color-beige: #dbd1c9;
+            --color-cream: #f5f5f5;
+            --color-offwhite: #f7f5f3;
+            --color-text: #212121;
+            --color-text-light: #ffffff;
+            --color-gold: #c19b65;
+            --color-white: #ffffff;
+            --color-footer-text: #071630;
+
+            /* Typography */
+            --font-serif-display: 'Cormorant Infant', Georgia, serif;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 48px;
+            --space-xl: 80px;
+            --space-2xl: 120px;
+
+            /* Components */
+            --border-radius: 10px;
+            --border-radius-sm: 5px;
+            --shadow-card: 0 4px 24px rgba(41,59,91,0.08);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-cream);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--color-cream);
+            border-bottom: 1px solid var(--color-beige);
+            padding: 14px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .navbar-logo .star {
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+
+        .navbar-cta {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--color-purple);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-sm);
+            transition: background 0.3s;
+        }
+
+        .navbar-cta:hover {
+            background: var(--color-navy);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #4a3a4d 100%);
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(600px 400px at 80% 0%, rgba(206,172,59,0.15), transparent 60%);
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://stellamia-crowdfunding.lovable.app/assets/hero-parent-child-CL2Kz7-X.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: var(--space-md);
+            border: 1px solid var(--color-gold);
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif-display);
+            font-size: 52px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-md);
+            text-shadow: 1px 1px 5px rgba(41,59,91,0.8);
+        }
+
+        .hero p {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: var(--space-lg);
+            max-width: 620px;
+        }
+
+        /* Hero Form */
+        .hero-form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--border-radius);
+            padding: var(--space-md);
+            max-width: 480px;
+        }
+
+        .hero-form-input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .hero-form input[type="email"] {
+            flex: 1;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            padding: 14px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(255,255,255,0.95);
+            color: var(--color-text);
+            outline: none;
+        }
+
+        .hero-form input[type="email"]::placeholder {
+            color: #999;
+        }
+
+        .hero-form-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            background: var(--color-purple);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: 14px 24px;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .hero-form-btn:hover {
+            background: var(--color-purple-light);
+        }
+
+        .hero-form-note {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Hero trust badges */
+        .hero-badges {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .hero-badge-icon {
+            font-size: 18px;
+        }
+
+        /* Side badge */
+        .hero-side-badge {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--color-gold), #b39332);
+            color: var(--color-white);
+            padding: 20px 24px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            z-index: 2;
+            display: none;
+        }
+
+        @media (min-width: 1100px) {
+            .hero-side-badge { display: block; }
+        }
+
+        .hero-side-badge .badge-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-side-badge .badge-value {
+            font-family: var(--font-serif-display);
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Date badge */
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: var(--space-md);
+            padding: 10px 20px;
+            border: 1px solid rgba(206,172,59,0.4);
+            border-radius: 30px;
+        }
+
+        .hero-date-label {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+        }
+
+        .hero-date-value {
+            font-family: var(--font-serif-display);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
+        /* ============================================
+           SECTION: TRES EDICIONES
+           ============================================ */
+        .ediciones-section {
+            padding: var(--space-2xl) 0;
+            background: var(--color-cream);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-purple);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif-display);
+            font-size: 44px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--color-navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-header p {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--color-text);
+        }
+
+        /* Edition Cards */
+        .ediciones-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        .edition-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-beige);
+            border-radius: var(--border-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .edition-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .edition-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            background: var(--color-beige);
+        }
+
+        .edition-card-tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: var(--color-blue-gray);
+            margin-bottom: 10px;
+        }
+
+        .edition-card h3 {
+            font-family: var(--font-serif-display);
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--color-navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .edition-card .edition-desc {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--color-text);
+            margin-bottom: var(--space-md);
+            flex: 1;
+        }
+
+        .edition-benefits {
+            list-style: none;
+            margin-bottom: var(--space-md);
+        }
+
+        .edition-benefits li {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: var(--color-text);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--color-cream);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .edition-benefits li::before {
+            content: '★';
+            color: var(--color-gold);
+            font-size: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .edition-card-cta {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--color-purple);
+            color: var(--color-white);
+            padding: 12px 20px;
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .edition-card-cta:hover {
+            background: var(--color-purple-light);
+        }
+
+        /* ============================================
+           SECTION: POR QUÉ STELLAMIA
+           ============================================ */
+        .why-section {
+            padding: var(--space-2xl) 0;
+            background: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .why-section .section-header h2 {
+            color: var(--color-white);
+        }
+
+        .why-section .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .why-section .section-tag {
+            color: var(--color-gold);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-serif-display);
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--color-gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: var(--color-white);
+            border: 1px solid var(--color-beige);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--color-navy);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .testimonial-stars {
+            color: var(--color-gold);
+            font-size: 18px;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-navy);
+        }
+
+        /* ============================================
+           SECTION: CTA LIMITADO
+           ============================================ */
+        .limitada-section {
+            padding: var(--space-xl) 0;
+            background: var(--color-cream);
+            text-align: center;
+        }
+
+        .limitada-section .section-tag {
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+            border: 1px solid var(--color-gold);
+            padding: 4px 14px;
+            border-radius: 20px;
+        }
+
+        .limitada-section h3 {
+            font-family: var(--font-serif-display);
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--color-navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .limitada-section p {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--color-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           SECTION: SIGNUP FINAL
+           ============================================ */
+        .signup-section {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #4a3a4d 100%);
+            text-align: center;
+        }
+
+        .signup-section .section-tag {
+            color: var(--color-gold);
+        }
+
+        .signup-section .section-header h2 {
+            color: var(--color-white);
+        }
+
+        .signup-section .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Form */
+        .signup-form {
+            max-width: 480px;
+            margin: 0 auto var(--space-lg);
+        }
+
+        .signup-form .hero-form-input-row {
+            background: rgba(255,255,255,0.1);
+            padding: 6px;
+            border-radius: var(--border-radius-sm);
+            gap: 6px;
+        }
+
+        .signup-form input[type="email"] {
+            flex: 1;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(255,255,255,0.95);
+            color: var(--color-text);
+            outline: none;
+        }
+
+        .signup-form input[type="email"]::placeholder {
+            color: #999;
+        }
+
+        .signup-form-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            background: var(--color-purple);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            padding: 12px 24px;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .signup-form-btn:hover {
+            background: var(--color-purple-light);
+        }
+
+        .signup-form-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            font-family: var(--font-sans);
+        }
+
+        /* Checklist */
+        .signup-checklist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .signup-checklist li {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .signup-checklist li::before {
+            content: '✓';
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-offwhite);
+            padding: var(--space-xl) 0 var(--space-md);
+            border-top: 1px solid var(--color-beige);
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-logo .star {
+            color: var(--color-gold);
+        }
+
+        .footer-tagline {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: var(--color-text);
+            font-weight: 300;
+            max-width: 300px;
+            margin-top: 6px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .footer-nav a {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: var(--color-navy);
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-purple);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-beige);
+            padding-top: var(--space-md);
+            text-align: center;
+        }
+
+        .footer-dsgvo {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--color-text);
+            font-weight: 300;
+            margin-bottom: 10px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-copyright {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--color-text);
+            font-weight: 300;
+        }
+
+        .footer-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-purple);
+            margin-top: var(--space-md);
+            transition: color 0.3s;
+        }
+
+        .footer-cta-link:hover {
+            color: var(--color-navy);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 991px) {
+            .ediciones-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+            .section-header h2 {
+                font-size: 36px;
+            }
+            .hero-form-input-row {
+                flex-direction: column;
+            }
+            .hero-form-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            .stat-value {
+                font-size: 44px;
+            }
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 478px) {
+            .hero {
+                padding: 120px 0 60px;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .section-header h2 {
+                font-size: 30px;
+            }
+            .hero-badges {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-logo">
+                <span class="star">★</span> Stellamia
+            </a>
+            <a href="#signup" class="navbar-cta">Jetzt Earlybird-Konditionen sichern!</a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-image"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Sommer 2026 · Crowdfunding</span>
+                <h1>Drei neue Stellamia-Editionen.</h1>
+                <p>Wir machen Stellamia noch spezifischer: umfangreiche Unterstützung für die jeweilige Lebensphase <em>deines</em> Kindes von 0–1, 1–3 und 3–6 Jahren. Individuell auf die Persönlichkeit deines Kind zugeschnitten. Trag dich jetzt in die Mailingliste ein und sei als Erste:r dabei, wenn die neuen Editionen zu Sonderpreisen starten.</p>
+
+                <div class="hero-form" id="signup">
+                    <form class="hero-form-input-row" onsubmit="handleFormSubmit(event, this)">
+                        <input type="email" placeholder="deine@email.de" required>
+                        <button type="submit" class="hero-form-btn">
+                            Early-Bird sichern
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+                    <p class="hero-form-note">Kein Spam. Versprochen. Jederzeit mit einem Klick abbestellbar.</p>
+                </div>
+
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">🛡️</span>
+                        Kein Spam
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">❤️</span>
+                        Von Eltern geliebt
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-icon">💰</span>
+                        Limitierte Sonderpreise
+                    </div>
+                </div>
+
+                <div class="hero-date">
+                    <span class="hero-date-label">Erscheinungsdatum</span>
+                    <span class="hero-date-value">Sommer 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-side-badge">
+            <div class="badge-tag">Early-Bird</div>
+            <div class="badge-value">Bis zu 40% sparen</div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TRES EDICIONES
+         ============================================ -->
+    <section class="ediciones-section" id="ediciones">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Die neuen Editionen</span>
+                <h2>Drei Begleiter. Eine Familie.</h2>
+                <p>Schluss mit Bücherbergen und widersprüchlichen Tipps. Stellamia 2026 gibt dir jetzt spezifisch auf die Altersphase deines Kindes abgestimmt Antworten zum Wesen, Verhalten und der dahinterliegende Gefühlswelt <em>deines</em> Kindes.</p>
+            </div>
+
+            <div class="ediciones-grid">
+                <!-- Card 1: 0-1 Jahre -->
+                <div class="edition-card">
+                    <img class="edition-card-image" src="https://stellamia-crowdfunding.lovable.app/assets/hero-parent-child-CL2Kz7-X.jpg" alt="Baby 0-1 Jahre">
+                    <span class="edition-card-tag">0–1 Jahre</span>
+                    <h3>Ankommen, fühlen, vertrauen.</h3>
+                    <p class="edition-desc">Für die erste, magische Phase. Wir geben dir Einblicke in die Veranlagungen deines Babys, seine individuellen Grundbedürfnisse. Damit du die kleinen Signale deines Babys verstehst – und nachts wieder durchatmen kannst.</p>
+                    <ul class="edition-benefits">
+                        <li>Bindung Schritt für Schritt aufbauen – ohne Druck</li>
+                        <li>Schlafbedürfnisse <em>deines</em> Babys verstehen und passend begleiten</li>
+                        <li>"Babysignale lesen lernen: vom Weinen bis zum ersten Lächeln"</li>
+                    </ul>
+                    <button class="edition-card-cta" onclick="scrollToSignup()">Early-Bird-Vorteile sichern</button>
+                </div>
+
+                <!-- Card 2: 1-3 Jahre -->
+                <div class="edition-card">
+                    <img class="edition-card-image" src="https://stellamia-crowdfunding.lovable.app/assets/hero-parent-child-CL2Kz7-X.jpg" alt="Kinder 1-3 Jahre">
+                    <span class="edition-card-tag">1–3 Jahre</span>
+                    <h3>Großwerden mit Halt.</h3>
+                    <p class="edition-desc">Trotzphase, Sauberwerden, Kita-Start: Jetzt geht alles gleichzeitig. Wir bringen dir nah, was hinter dem Verhalten deines Kindes steckt. Damit du mit Verständnis sicher und in Verbindung durch eine anspruchsvolle Phase navigieren kannst.</p>
+                    <ul class="edition-benefits">
+                        <li>Die Autonomiephase <em>deines</em> Kindes verstehen: weniger Kämpfe, mehr Verbindung</li>
+                        <li>Sauberwerden ohne Kämpfe und Scham</li>
+                        <li>"Kita-Eingewöhnung: charakterspezifisch passend und nachhaltig"</li>
+                    </ul>
+                    <button class="edition-card-cta" onclick="scrollToSignup()">Early-Bird-Vorteile sichern</button>
+                </div>
+
+                <!-- Card 3: 3-6 Jahre -->
+                <div class="edition-card">
+                    <img class="edition-card-image" src="https://stellamia-crowdfunding.lovable.app/assets/hero-parent-child-CL2Kz7-X.jpg" alt="Kinder 3-6 Jahre">
+                    <span class="edition-card-tag">3–6 Jahre</span>
+                    <h3>Welt entdecken, Ich entwickeln.</h3>
+                    <p class="edition-desc">Freundschaften, Gefühle, Lernen. Wir zeigen dir, wie du die Persönlichkeit <em>deines</em> Kindes in dieser Phase bestmöglich erkennst und stärkst – und Resilienz für ein ganzes Leben pflanzt.</p>
+                    <ul class="edition-benefits">
+                        <li>Soziales Miteinander mit Geschwistern und Freund:innen</li>
+                        <li>Den individuellen Lernstil erkennen und fördern</li>
+                        <li>Resilienz aufbauen – für die kleinen und großen Stürme</li>
+                    </ul>
+                    <button class="edition-card-cta" onclick="scrollToSignup()">Early-Bird-Vorteile sichern</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         POR QUÉ STELLAMIA
+         ============================================ -->
+    <section class="why-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Warum Stellamia</span>
+                <h2>Weil Eltern keine 08/15-Theorie brauchen – sondern einen individuell passenden Begleiter.</h2>
+                <p>Stellamia steht an der Seite von Familien in ihren intensivsten Momenten. Unsere Inhalte sind fachlich fundiert, mit Liebe erstellt und so aufbereitet, dass ihr sie auch um 22:47 Uhr noch versteht – und das liebevoll illustrierte Buch ein Leben lang als Erinnerung aufheben möchtet.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Familien begleitet</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">4,9/5</div>
+                    <div class="stat-label">Bewertung von Eltern</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">0%</div>
+                    <div class="stat-label">Besserwisser-Finger</div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <blockquote class="testimonial-quote">
+                    "Ich bin total geplättet! Diese „Analyse" passt zu 95% auf unser Kind und unsere Beziehung! Ich finde den Aufbau und die Struktur klar, nachvollziehbar und sehr verständlich. Die aufgeführten Beispiele zeigen Eltern auf, was genau mit dem thematischen Inhalt gemeint ist."
+                </blockquote>
+                <div class="testimonial-author">Lisa M. — Mama von Moritz (6)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA LIMITADO
+         ============================================ -->
+    <section class="limitada-section">
+        <div class="container">
+            <span class="section-tag">Limitiert</span>
+            <h3>Nur die ersten Eintragungen erhalten den vollen Early-Bird-Sonderpreis.</h3>
+            <p>Sanft gesagt: Wir machen das einmal – und wirklich nur einmal. Wer dabei ist, ist dabei. Versprochen ohne erhobenen Zeigefinger.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SIGNUP FINAL
+         ============================================ -->
+    <section class="signup-section" id="signup-form">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Jetzt eintragen</span>
+                <h2>Sei als Erste:r dabei, wenn die neuen Editionen starten.</h2>
+                <p>Eine kurze E-Mail genügt. Wir melden uns vor allen anderen, sobald die Crowdfunding-Aktion live geht – mit deinem persönlichen Sonderpreis.</p>
+            </div>
+
+            <div class="signup-form">
+                <form class="hero-form-input-row" onsubmit="handleFormSubmit(event, this)">
+                    <input type="email" placeholder="deine@email.de" required>
+                    <button type="submit" class="signup-form-btn">
+                        Sonderpreis reservieren
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </form>
+                <p class="signup-form-note">Kein Spam. Versprochen. Jederzeit mit einem Klick abbestellbar.</p>
+            </div>
+
+            <ul class="signup-checklist">
+                <li>Jetzt Early-Bird werden</li>
+                <li>Als Erste:r erfahren</li>
+                <li>Sonderpreis sichern</li>
+                <li>Plätze reservieren</li>
+                <li>Mit dabei sein</li>
+                <li>Kostenlos vormerken</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div>
+                    <div class="footer-logo">
+                        <span class="star">★</span> Stellamia
+                    </div>
+                    <p class="footer-tagline">Warm, ehrlich, alltagstauglich. Begleitung für Eltern in den intensivsten Jahren.</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#signup">Early-Bird-Liste</a>
+                    <a href="https://www.stellamia.eu">Hauptseite</a>
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-dsgvo">Mit deiner Anmeldung erhältst du Informationen zu den neuen Stellamia-Editionen 2026 und exklusive Early-Bird-Angebote. Du kannst dich jederzeit mit einem Klick wieder abmelden. Mehr in unserer Datenschutzerklärung.</p>
+                <p class="footer-copyright">© 2026 Stellamia · Mit Herz gemacht</p>
+                <a href="#signup" class="footer-cta-link">
+                    Zur Anmeldung
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(event, form) {
+            event.preventDefault();
+            const email = form.querySelector('input[type="email"]').value;
+            if (email) {
+                // Show confirmation inline
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✓ Angemeldet!';
+                btn.style.background = '#4caf50';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
